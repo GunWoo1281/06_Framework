@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.container{
+    background-color: skyblue;
+    width: 500px;
+    height: 400px;
+    margin: auto;
+}
+
+.container img {
+    width: 19%;
+    height: auto;
+}
