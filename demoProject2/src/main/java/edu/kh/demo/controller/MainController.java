@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
 	@RequestMapping("/")
-	public String mainPage() {
-		System.out.println("로그입니다.");
-		
+	public String mainPage() {		
 		return "common/main";
 	}
 }
