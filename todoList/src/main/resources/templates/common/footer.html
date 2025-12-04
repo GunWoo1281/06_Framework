@@ -1,0 +1,8 @@
+<!-- js 영역 -->
+<script th:inline="javascript">
+    const message = /*[[${message}]]*/ "전달 받은 메시지";
+
+    if(message != null){
+        alert(message);
+    }
+</script>
