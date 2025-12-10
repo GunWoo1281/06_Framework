@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -157,4 +158,35 @@ public class MemberController {
 		return 0;
 	}
 	
+	/** 회원 가입
+	 * @param inputmember : 커맨드 객체(입력된 회원 정보)
+	 * @param 입력한 주소 input 3개의 값을 배열로 전달
+	 * @return
+	 */
+	@PostMapping("signup")
+	public String signUp(@ModelAttribute Member inputmember, @RequestParam("memberAddress") String[] memberAddress, RedirectAttributes ra) {
+
+		String path = null;
+		
+		try {
+			int result = service.signUp(inputmember, memberAddress);
+			
+			String message = null;
+			
+			if(result > 0) { //성공
+				message = inputmember.getMemberNickname() + "님의 가입을 환영합니다!";
+				path = "/";
+			} else { //실패
+				message = "회원 가입 실패...";
+				path = "signup";
+			}
+			
+			ra.addFlashAttribute("message", message);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "redirect:" + path;
+	}
 }

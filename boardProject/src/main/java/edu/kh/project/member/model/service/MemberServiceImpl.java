@@ -57,4 +57,21 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.checkNickname(memberNickname);
 	}
 
+	@Override
+	public int signUp(Member inputmember , String[] memberAddress) throws Exception {
+		// 주소가 입력된 경우
+		if(!inputmember.getMemberPw().equals("")) {
+			String address = String.join("^^^", memberAddress); // 배열 -> 하나의 문자열로 변환
+			inputmember.setMemberAddress(address);
+		}
+		else {
+			inputmember.setMemberAddress(null);
+		}
+
+		//비밀번호 암호화
+		String encPw = bcrypt.encode(inputmember.getMemberPw());
+		inputmember.setMemberPw(encPw);
+		return mapper.signUp(inputmember);
+	}
+
 }

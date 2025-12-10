@@ -12,4 +12,6 @@ public interface MemberMapper {
 	int checkEmail(String memberEmail) throws Exception;
 
 	int checkNickname(String memberNickname) throws Exception;
+
+	int signUp(Member inputmember) throws Exception;
 }

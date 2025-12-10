@@ -4,7 +4,6 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-@Service
 public interface EmailService {
 
 	/** 이메일 보내기 서비스

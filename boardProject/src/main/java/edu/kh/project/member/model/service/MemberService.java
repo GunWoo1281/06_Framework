@@ -26,4 +26,11 @@ public interface MemberService {
 	 */
 	int checkNickname(String memberNickname) throws Exception;
 
+	/** 회원 가입 서비스
+	 * @param inputmember
+	 * @return
+	 * @throws Exception
+	 */
+	int signUp(Member inputmember, String[] memberAddress) throws Exception;
+
 }
