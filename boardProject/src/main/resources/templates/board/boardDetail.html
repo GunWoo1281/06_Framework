@@ -76,7 +76,7 @@
             <th:block th:if="${ #lists.size(board.imageList) > 0}">
 
                 <!-- 썸네일이 있을 경우 -->
-                <th:block th:if="*{thumbnail}">
+                <th:block th:if="${thumbnail != null}">
                     <h5>썸네일</h5>
                     <div class="img-box">
                         <div class="boardImg thumbnail">
