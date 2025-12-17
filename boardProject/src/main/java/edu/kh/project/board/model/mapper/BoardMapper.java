@@ -34,5 +34,35 @@ public interface BoardMapper {
 	List<Board> searchList(Map<String, Object> paramMap, RowBounds rowBounds);
 
 	Board selectOne(Map<String, Integer> map);
+
+	/** 조회수 1 증가 SQL
+	 * @param boardNo
+	 * @return
+	 */
+	int updateReadCount(int boardNo);
+
+	/** 조회 수 조회 SQL
+	 * @param boardNo
+	 * @return
+	 */
+	int selectReadCount(int boardNo);
+
+	/**게시판 좋아요 해제
+	 * @param map
+	 * @return
+	 */
+	int deleteBoardLike(Map<String, Integer> map);
+
+	/**게시판 좋아요 등록
+	 * @param map
+	 * @return
+	 */
+	int insertBoardLike(Map<String, Integer> map);
+
+	/**게시판 좋아요 갯수 확인
+	 * @param integer
+	 * @return
+	 */
+	int selectLikeCount(int boardNo);
 	
 }
