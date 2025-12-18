@@ -20,7 +20,7 @@ public class Board {
     private String boardUpdateDate;
     private int readCount;
     private String boardDelFl;
-    private String boardCode;
+    private int boardCode;
     private int memberNo;
 	
     //MEMBER 테이블 조인
