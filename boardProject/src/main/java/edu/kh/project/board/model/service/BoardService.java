@@ -3,12 +3,9 @@ package edu.kh.project.board.model.service;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
-
 import edu.kh.project.board.model.dto.Board;
 import jakarta.servlet.ServletContext;
 
-@Service
 public interface BoardService {
 
 	/** 게시판 종류 조회 서비스
@@ -52,5 +49,11 @@ public interface BoardService {
 	 * @return
 	 */
 	int boardLike(Map<String, Integer> map);
+
+
+	/** DB 이미지 파일명 목록 조회 서비스
+	 * @return
+	 */
+	List<String> selectImageList();
 
 }

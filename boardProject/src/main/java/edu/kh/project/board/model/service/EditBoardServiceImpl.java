@@ -175,7 +175,7 @@ public class EditBoardServiceImpl  implements EditBoardService{
 
 				//수정(삽입)이 실패한 경우
 				if (result==0) { 
-					throw new RuntimeException("게시글 관련 파일 수정/삽입 실패");
+					throw new RuntimeException("게시글 관련 파일 수정/삽입 실패");					
 				}
 			}
 		}

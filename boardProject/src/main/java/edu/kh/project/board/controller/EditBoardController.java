@@ -177,7 +177,7 @@ public class EditBoardController {
 	@RequestMapping("{boardCode:[0-9]+}/{boardNo:[0-9]+}/delete")
 	public String boardDelete(@PathVariable("boardCode") int boardCode, @PathVariable("boardNo") int boardNo, 
 	@ModelAttribute Board inputBoard,
-	@SessionAttribute("loginMember") Member loginMember, @RequestParam(value = "deleteOrderList", required = false) String deleteOrderList, @RequestParam(value = "cp", required = false, defaultValue = "1") int cp, RedirectAttributes ra){
+	@SessionAttribute("loginMember") Member loginMember, @RequestParam(value = "cp", required = false, defaultValue = "1") int cp, RedirectAttributes ra){
 		//1. 커맨드 객체(inputBoard)에 boardCode, boardNo, memberNo 세팅
 		inputBoard.setBoardCode(boardCode);
 		inputBoard.setBoardNo(boardNo);

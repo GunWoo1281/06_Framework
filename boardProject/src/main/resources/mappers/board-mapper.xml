@@ -179,7 +179,7 @@
 		<collection 
 			property="imageList"
 			column="BOARD_NO"
-			select="selectImageList"
+			select="selectBoardImageList"
 			javaType="java.util.ArrayList"
 			ofType="BoardImg"
 		/>
@@ -197,7 +197,7 @@
 	-->
 
 	<!--상세 조회한 게시글의 이미지 조회-->
-	<select id="selectImageList" resultType="BoardImg">
+	<select id="selectBoardImageList" resultType="BoardImg">
 		SELECT * FROM "BOARD_IMG"
 		WHERE BOARD_NO = #{boardNo}
 		ORDER BY IMG_ORDER
@@ -275,5 +275,11 @@
 	<select id="selectLikeCount">
 		SELECT COUNT(*) FROM "BOARD_LIKE"
 		WHERE BOARD_NO = #{boardNo}
+	</select>
+	
+	<select id="selectImageList">
+		SELECT SUBSTR(PROFILE_IMG, INSTR(PROFILE_IMG, '/', -1) + 1) AS "rename" FROM "MEMBER"
+		UNION
+		SELECT CAST(IMG_RENAME AS VARCHAR2(300)) AS "rename" FROM "BOARD_IMG"
 	</select>
 </mapper>
